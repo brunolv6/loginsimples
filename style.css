@@ -17,7 +17,9 @@
 }
 
 body{
-    background-color: rgba(34, 34, 34, 0.925);
+/*     background-color: rgba(34, 34, 34, 0.925); */
+/*     background-image: url("./fundo1.jpg"); */
+    background-color: rgb(24, 21, 21);
 }
 
 .grid{
@@ -26,6 +28,7 @@ body{
 
 .templateGeral{
     grid-template: 
+        "nada nada nada" 15vh
         "esquerda caixa direita" 1fr
         /1fr 350px 1fr;
 }
@@ -38,7 +41,9 @@ body{
 
 .caixa{
     grid-area: caixa;
-    background-color: black;
+    background-color: none;
+    border: 1px solid white;
+    box-shadow: 14px 14px 7px 0px rgba(0, 0, 0, 0.92);
 }
 
 .flex{
@@ -49,7 +54,7 @@ body{
 
 button{
     outline: none;
-    background-color: black;
+    background-color: rgb(24, 21, 21);
     color: white;
     border: solid 2px white;
     border-radius: 20px;

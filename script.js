@@ -14,7 +14,6 @@ document.querySelector("button").onclick = () => {
             method: "put",
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                nome: "amanda",
                 email: email,
                 password: senha
             })
@@ -22,7 +21,8 @@ document.querySelector("button").onclick = () => {
         .then((dado) => console.log(dado))
         .then(() => {
             document.querySelector("#password").value = "";
-        });
+        })
+        .then(() => window.location.href = "../questList/index.html");
     } else if(email && senha && n === 3) {
         const nome = document.querySelector("#nome").value;
         fetch("http://localhost:3000/users", {
@@ -34,7 +34,8 @@ document.querySelector("button").onclick = () => {
                 password: senha
             })
         }).then((res) => res.json())
-        .then((dado) => console.log(dado));
+        .then((dado) => console.log(dado))
+        .then(() => window.location.href = "../questList/index.html");
     } else {
         alert("Você precisa adicionar um email e uma senha para logar!");
     }
