@@ -75,6 +75,11 @@ input{
     font-size: 18px;
 }
 
+.login{
+    font-size: 12px;
+    border: none;
+}
+
 .registrar{
     font-size: 12px;
     border: none;

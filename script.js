@@ -2,12 +2,12 @@
 document.querySelector("button").onclick = () => {
     const email = document.querySelector("#email").value;
     const senha = document.querySelector("#password").value;
-    let n = 2;
+    let n = 2; //login
     if(document.querySelector("#nome") !== null){
         /* IMPORTANTÍSSIMO */
         /* SE DEFINIDO DENTRO DAQUI NOME NÃO PASSARÁ NO JSON NO CADASTRO!!! */
         /* const nome = document.querySelector("#nome").value; */
-        n = 3;
+        n = 3; //register
     }
     if(email && senha && n === 2){
         fetch("http://localhost:3000/users", {
@@ -19,7 +19,10 @@ document.querySelector("button").onclick = () => {
                 password: senha
             })
         }).then((res) => res.json())
-        .then((dado) => console.log(dado));
+        .then((dado) => console.log(dado))
+        .then(() => {
+            document.querySelector("#password").value = "";
+        });
     } else if(email && senha && n === 3) {
         const nome = document.querySelector("#nome").value;
         fetch("http://localhost:3000/users", {
@@ -38,6 +41,7 @@ document.querySelector("button").onclick = () => {
 }
 
 document.querySelector(".registrar").onclick = () => {
+    document.querySelector("#password").value = "";
     //trocando título
     document.querySelector(".titulo").innerHTML = "Registrar";
 
@@ -63,7 +67,7 @@ document.querySelector(".registrar").onclick = () => {
     document.querySelector(".dados").insertBefore(di, document.querySelector("#firstDiv"));
 
     //registrar ao final trocar por login
-    document.querySelector(".registrar").innerHTML = "Login";
-/*     document.querySelector(".registrar").classList.add(".login");
-    document.querySelector(".login").classList.remove(".registrar"); */
+    document.querySelector("#entrar").innerHTML = "Login";
+    document.querySelector("#entrar").classList.remove("registrar");
+    document.querySelector("#entrar").classList.add("login");
 }
