@@ -48,10 +48,13 @@ body{
 }
 
 button{
-    background-color: rgba(34, 34, 34, 0.925);
+    outline: none;
+    background-color: black;
     color: white;
     border: solid 2px white;
     border-radius: 20px;
+    margin: 2px 0px;
+    padding: 5px;
 }
 
 .dados{
@@ -63,6 +66,16 @@ input{
     border: none;
     border-radius: 10px;
     margin: 5px 0px;
-    padding-left: 5px;
+    padding-left: 10px;
     width: 100%;
+    font-size: 18px;
+}
+
+.titulo{
+    font-size: 18px;
+}
+
+.registrar{
+    font-size: 12px;
+    border: none;
 }
