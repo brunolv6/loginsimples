@@ -1,20 +1,38 @@
 
 document.querySelector("button").onclick = () => {
-    const nome = document.querySelector("#nome").value;
     const email = document.querySelector("#email").value;
     const senha = document.querySelector("#password").value;
-    if(email && senha && !nome){
-        fetch("http://localhost:3000/", {
+    let n = 2;
+    if(document.querySelector("#nome") !== null){
+        /* IMPORTANTÍSSIMO */
+        /* SE DEFINIDO DENTRO DAQUI NOME NÃO PASSARÁ NO JSON NO CADASTRO!!! */
+        /* const nome = document.querySelector("#nome").value; */
+        n = 3;
+    }
+    if(email && senha && n === 2){
+        fetch("http://localhost:3000/users", {
+            method: "put",
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                nome: "amanda",
+                email: email,
+                password: senha
+            })
+        }).then((res) => res.json())
+        .then((dado) => console.log(dado));
+    } else if(email && senha && n === 3) {
+        const nome = document.querySelector("#nome").value;
+        fetch("http://localhost:3000/users", {
             method: "post",
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
+                nome: nome,
                 email: email,
-                senha: senha
+                password: senha
             })
-        }).then(() => alert("Cadastro Feito!"));
-    } /* else if(email && senha & !nome) {
-        fetch
-    } */ else {
+        }).then((res) => res.json())
+        .then((dado) => console.log(dado));
+    } else {
         alert("Você precisa adicionar um email e uma senha para logar!");
     }
 }
